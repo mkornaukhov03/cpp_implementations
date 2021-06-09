@@ -35,8 +35,7 @@ template <class T> struct Future {
     }
 
     bool ready() const {
-        if (!state_)
-            return false;
+        if (!valid()) return false; 
         std::lock_guard lock(state_->mtx_);
         return state_->ready;
     }
