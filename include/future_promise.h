@@ -29,13 +29,12 @@ template <class T> struct Future {
             state_->cv_.wait(lock);
     }
 
-    bool valid() const {
-        std::lock_guard lock(state_->mtx_);
+    bool valid() const {;
         return state_ != nullptr;
     }
 
     bool ready() const {
-        if (!valid()) return false; 
+        if (!valid()) return false;
         std::lock_guard lock(state_->mtx_);
         return state_->ready;
     }
