@@ -18,7 +18,7 @@ template <class T> struct SharedState : std::enable_shared_from_this<SharedState
 };
 
 template <class T> struct Future {
-    Future(const std::shared_ptr<SharedState<T>> &state) : state_(state) {}
+    Future(std::shared_ptr<SharedState<T>> state) : state_(std::move(state)) {}
 
     void wait() const {
         if (!state_) {
