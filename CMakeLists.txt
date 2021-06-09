@@ -13,5 +13,7 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG_INIT "-g -fsanitize=address -fsanitize=undefined")
 set(CMAKE_CXX_FLAGS_RELEASE_INIT "-O2")
 
+find_package (Threads)
 include_directories("include/")
 add_executable(executable ${HEADERS} ${SOURCES})
+target_link_libraries(executable Threads::Threads)
