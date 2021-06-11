@@ -6,6 +6,7 @@
 #include <mutex>
 #include <optional>
 
+namespace FuturePromise {
 template <class T> struct Promise;
 
 struct FuturePromiseException : std::runtime_error {
@@ -124,3 +125,4 @@ template <class T> struct Promise {
     std::shared_ptr<SharedState<T>> state_;
     bool already_retrieved_ = false;
 };
+} // namespace FuturePromise

@@ -5,7 +5,8 @@ project(executable)
 set(SOURCES "main.cc"
             "src/future_promise.cc")
 
-set (HEADERS "include/future_promise.h")
+set (HEADERS "include/future_promise.h"
+             "include/is_valid.h")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra")
